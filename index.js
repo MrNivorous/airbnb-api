@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {res.send('Welcome to AirBNB API')})
+app.get('/', require('./controllers/root.js'))
 
 app.get('/places', (req, res) => {
 	res.send({places: [
@@ -35,6 +35,7 @@ app.get('/places', (req, res) => {
 	}
 ]})
 })
+
 app.listen(4000, () => {
 	console.log('Ready on port 4000')
 })
