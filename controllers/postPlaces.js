@@ -1,11 +1,11 @@
 const Place = require('../models/place.js')
 
-postPlaces = (req, res) => { Place.create({
+let postPlaces = (req, res) => { Place.create({
 	title: 'Unbelievable Infinite Pool',
 	description: 'So nice!',
 	type: 'Entire House',
-	city: 'Ko Samui',
-	country: 'Thailand',
+	city: 'Houston',
+	country: 'USA',
 	price: 350,
 	rating: 4,
 	guests: 5,
