@@ -14,8 +14,8 @@ database
 
 // Routes
 app.get('/', require('./controllers/root.js'))
+app.get('/places', require('./controllers/getPlace.js'))
 app.get('/places', require('./controllers/getPlaces.js'))
-app.get('/places/:id', require('./controllers/getPlace.js'))
 app.post('/places', require('./controllers/postPlaces.js'))
 app.patch('/places/:id', require('./controllers/patchPlace.js'))
 app.delete('/places/:id', require('./controllers/deletePlace.js'))
