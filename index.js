@@ -15,6 +15,7 @@ database
 // Routes
 app.get('/', require('./controllers/root.js'))
 app.get('/places', require('./controllers/getPlaces.js'))
+app.get('/places/:id', require('./controllers/getPlace.js'))
 app.post('/places', require('./controllers/postPlaces.js'))
 
 app.listen(4000, () => {
