@@ -36,7 +36,11 @@ guests: {
 bathrooms: {
 	type: Number,
 	required: [true, 'Number of bathrooms is required']
-			}
+	},
+host: {
+	type: mongoose.Schema.Types.ObjectId,
+	ref: 'user'
+}
 })
 
 module.exports = place
