@@ -19,6 +19,10 @@ app.get('/places/:id', require('./controllers/getPlace.js'))
 app.post('/places', require('./controllers/postPlaces.js'))
 app.patch('/places/:id', require('./controllers/patchPlace.js'))
 app.delete('/places/:id', require('./controllers/deletePlace.js'))
+app.post('/type', require('./controllers/postType.js'))
+app.get('/type', require('./controllers/getTypes.js'))
+
+
 
 app.listen(4000, () => {
 	console.log('Ready on port 4000')
