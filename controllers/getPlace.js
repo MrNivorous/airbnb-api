@@ -1,7 +1,8 @@
 const Place = require('../models/place.js')
 
 module.exports = (req, res) => {
-	Place.findById(req.params.id).populate({
+	Place.findById(req.params.id).populate('type')
+	.populate({
 		path: 'host',
 		select: 'name avatar'
 	})

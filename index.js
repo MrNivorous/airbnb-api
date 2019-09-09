@@ -33,6 +33,11 @@ app.post('/users', require('./controllers/postUsers'))
 app.post('/amenities', require('./controllers/postAmenities'))
 app.get('/amenities', require('./controllers/getAmenities'))
 
+	// Reviews
+app.post('/reviews', require('./controllers/postReviews'))
+app.get('/reviews/:id', require('./controllers/getReviews')
+)
+
 app.listen(4000, () => {
 	console.log('Ready on port 4000')
 })

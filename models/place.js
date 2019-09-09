@@ -39,7 +39,13 @@ bathrooms: {
 	},
 host: {
 	type: mongoose.Schema.Types.ObjectId,
-	ref: 'user'
+	ref: 'user',
+	required: [true, "Host is required"]
+},
+images: [String],
+amenities: {
+	type: [mongoose.Schema.Types.ObjectId],
+	ref: 'amenity'
 }
 })
 

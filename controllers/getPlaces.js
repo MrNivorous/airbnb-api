@@ -17,11 +17,3 @@ search = () => {
 		res.send(err)
 		})
 	}
-
- // ( { $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] } )
-
-// ({$or:[
-// 	{price: {$lte: req.query.max_price}},
-// 	{bathrooms: {$gte: req.query.min_rooms}},
-// 	// guests: {$gte: req.query.min_guests}}
-// ]})
