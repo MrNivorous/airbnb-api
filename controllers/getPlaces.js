@@ -11,6 +11,7 @@ search = () => {
 }
 
 	Place.find(search())
+		.populate('type')
 		.then(data => {res.send(data)})
 		.catch(err => {
 		res.send(err)

@@ -10,8 +10,8 @@ description: {
 	required: [true, 'Description is required']
 			},
 type: {
-	type: String,
-	required: [true, 'Type is required']
+	type: mongoose.Schema.Types.ObjectId,
+	ref: 'type'
 			},
 city: {
 	type: String,
