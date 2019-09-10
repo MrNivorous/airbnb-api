@@ -46,6 +46,10 @@ images: [String],
 amenities: {
 	type: [mongoose.Schema.Types.ObjectId],
 	ref: 'amenity'
+},
+bedrooms: {
+	type: Number,
+	required: [true, 'Bedrooms is required']
 }
 })
 

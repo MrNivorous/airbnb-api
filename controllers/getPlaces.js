@@ -10,9 +10,12 @@ search = () => {
 	return searchObj
 }
 
-	Place.find(search())
-		.populate('type')
-		.then(data => {res.send(data)})
+	Place.find({})
+		.select('bedrooms city country images price reviews title type').lean()
+		.then(data.images.map() => let image = data.images[0]
+					return image)
+		.then(data => {
+			res.send(data)})
 		.catch(err => {
 		res.send(err)
 		})
