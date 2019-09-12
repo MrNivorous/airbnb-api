@@ -10,7 +10,7 @@ module.exports = (req, res) => {
 	.lean()
 	.then(place =>
 		Review.find({place: place._id}).then(reviews => {
-				place.reviews = reviews.length
+				place.reviews = reviews
 				res.send(place)
 			})
 		// 	})
