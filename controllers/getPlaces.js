@@ -1,4 +1,5 @@
 const Place = require('../models/place.js')
+const Review = require('../models/review')
 
 module.exports = (req, res) => {
 
@@ -10,13 +11,26 @@ search = () => {
 	return searchObj
 }
 
-	Place.find({})
-		.select('bedrooms city country images price reviews title type').lean()
-		.then(data.images.map() => let image = data.images[0]
-					return image)
-		.then(data => {
-			res.send(data)})
-		.catch(err => {
-		res.send(err)
+Place.find(search())
+	.select('city country images price reviews title type')
+	.populate('type')
+	// .populate('reviews')
+	.lean()
+	.then(data => {
+		let places = data.map(p => {
+			return Review.find({place: p._id}).then(reviews => {
+				p.reviews = reviews.length
+				p.type = p.type.name
+				p.images ? p.image = p.images[0] : null
+				delete p.images
+				return p
+			})
 		})
-	}
+		Promise.all(places).then(data => {
+			res.send(data)
+		})
+	.catch(err => res.send(err))
+})
+}
+
+	// place.type = place.type.name
