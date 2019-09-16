@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-let database = mongoose.connect('mongodb://localhost:27017/airbnb', {useNewUrlParser: true}, (err) => {
+
+let database = mongoose.connect(process.env.DATABASE, {useNewUrlParser: true}, (err) => {
 	err ? console.log(err) : console.log('Connected to MongoDB')
 })
 

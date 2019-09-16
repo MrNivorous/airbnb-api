@@ -1,5 +1,6 @@
 const Place = require('../models/place.js')
 const Review = require('../models/review.js')
+const moment = require('moment')
 
 module.exports = (req, res) => {
 	Place.findById(req.params.id).populate('type amenities')
@@ -9,10 +10,11 @@ module.exports = (req, res) => {
 	})
 	.lean()
 	.then(place =>
-		Review.find({place: place._id}).then(reviews => {
+		Review.find({place: place._id}).populate('author').then(reviews => {
+				// place.reviews.date = moment(date).format('D MMMM YYYY')
 				place.reviews = reviews
 				res.send(place)
-			})
+		})
 		// 	})
 		// })
 		// Promise.all(places).then(data => {

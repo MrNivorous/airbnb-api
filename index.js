@@ -2,6 +2,8 @@ const express = require('express')
 const database = require('./database')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+require('dotenv').config()
+
 
 
 // Express
@@ -41,6 +43,6 @@ app.post('/reviews', require('./controllers/postReviews'))
 app.get('/reviews/:id', require('./controllers/getReviews')
 )
 
-app.listen(4000, () => {
-	console.log('Ready on port 4000')
+app.listen(process.env.PORT, () => {
+	console.log(`Ready on port ${process.env.PORT}`)
 })
